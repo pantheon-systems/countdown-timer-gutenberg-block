@@ -21,6 +21,9 @@
 			innerHTML;
 		for ( var i = elements.length - 1; i >= 0; i--) {
 			element = elements[i];
+			if ( typeof element.dataset.datetime === 'undefined' ) {
+				continue;
+			}
 			timeRemaining = getTimeRemaining( element.dataset.datetime );
 			if ( timeRemaining ) {
 				innerHTML = '<span class="countdown-timer-days">' + timeRemaining.days + ' days</span> '

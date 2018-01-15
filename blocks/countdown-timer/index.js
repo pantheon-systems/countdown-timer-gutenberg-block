@@ -4,16 +4,25 @@
 	var BlockControls = wp.blocks.BlockControls;
 	var InspectorControls = wp.blocks.InspectorControls;
 
+	var defaultDateTime = moment().add(8, 'days');
+	var dateTimeFormat = 'YYYY-MM-DD HH:mm';
+
 	var renderHtml = function( props ) {
-		var date;
-		if ( props.attributes.datetime ) {
-			date = moment( props.attributes.datetime );
-		} else {
-			date = moment().add(8, 'days');
+		if ( typeof props.attributes.datetime === 'undefined' ) {
+			return el( 'div', {
+					className: 'countdown-timer'
+				},
+				el(
+					'p',
+					{},
+					__( 'Please specify a date & time.' )
+				),
+			)
 		}
+		var date = moment( props.attributes.datetime );
 		return el( 'div', {
 				className: 'countdown-timer',
-				'data-datetime': date.format()
+				'data-datetime': date.format( dateTimeFormat )
 			},
 			el(
 				'p',
@@ -36,7 +45,8 @@
 
 		attributes: {
 			datetime: {
-				type: 'string'
+				type: 'string',
+				default: defaultDateTime.format( dateTimeFormat )
 			},
 		},
 
