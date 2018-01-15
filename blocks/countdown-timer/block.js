@@ -5,10 +5,7 @@
 	var InspectorControls = wp.blocks.InspectorControls;
 
 	var renderHtml = function( props ) {
-		var label = props.attributes.label;
-		return el( 'div', { className: 'countdown-timer' },
-				el( 'h2', { className: 'countdown-timer-label' }, label )
-			);
+		return el( 'div', { className: 'countdown-timer' } );
 	};
 
 	// Visit https://wordpress.org/gutenberg/handbook/block-api/ to learn about Block API
@@ -23,16 +20,12 @@
 		supportHTML: false,
 
 		attributes: {
-			label: {
-				type: 'array',
-				source: 'children',
-				selector: 'h2',
+			datetime: {
+				type: 'string',
 			},
 		},
 
 		edit: function( props ) {
-			var label = props.attributes.label,
-				focus = props.focus;
 			return [
 				el( InspectorControls,
 					{
@@ -41,11 +34,11 @@
 					el(
 						InspectorControls.TextControl,
 						{
-							label: __( 'Label' ),
-							value: label,
+							label: __( 'Date & Time' ),
+							value: props.attributes.datetime,
 							onChange: function( newValue ) {
 								props.setAttributes({
-									label: newValue,
+									datetime: newValue,
 								});
 							}
 						}
