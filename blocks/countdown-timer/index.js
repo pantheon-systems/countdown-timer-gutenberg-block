@@ -5,10 +5,15 @@
 	var InspectorControls = wp.blocks.InspectorControls;
 
 	var renderHtml = function( props ) {
-		var date = moment( props.datetime ) || moment().day(2);
+		var date;
+		if ( props.attributes.datetime ) {
+			date = moment( props.attributes.datetime );
+		} else {
+			date = moment().add(8, 'days');
+		}
 		return el( 'div', {
 				className: 'countdown-timer',
-				'data-datetime': '2018-06-01'
+				'data-datetime': date.format()
 			},
 			el(
 				'p',
@@ -31,7 +36,7 @@
 
 		attributes: {
 			datetime: {
-				type: 'string',
+				type: 'string'
 			},
 		},
 
