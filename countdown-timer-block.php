@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:     Countdown Timer
+ * Plugin Name:     Countdown Timer Block
  * Plugin URI:      https://pantheon.io
- * Description:     Countdown timer block
+ * Description:     Countdown Timer Block
  * Author:          Daniel Bachhuber
  * Author URI:      https://handbuilt.co
  * Text Domain:     countdown-timer
