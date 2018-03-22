@@ -34,7 +34,7 @@
 
 	// Visit https://wordpress.org/gutenberg/handbook/block-api/ to learn about Block API
 	wp.blocks.registerBlockType( 'countdown-timer/countdown-timer', {
-		title: __( 'Countdown Timer', 'countdown-timer' ),
+		title: __( 'Countdown Timer' ),
 
 		icon: 'clock',
 
