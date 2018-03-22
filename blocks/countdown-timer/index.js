@@ -3,6 +3,7 @@
 	var __ = wp.i18n.__;
 	var BlockControls = wp.blocks.BlockControls;
 	var InspectorControls = wp.blocks.InspectorControls;
+	var Components = wp.components;
 
 	var defaultDateTime = moment().add(8, 'days');
 	var dateTimeFormat = 'YYYY-MM-DD HH:mm';
@@ -57,7 +58,7 @@
 						key: 'inspector',
 					},
 					el(
-						InspectorControls.TextControl,
+						Components.TextControl,
 						{
 							label: __( 'Date & Time' ),
 							value: props.attributes.datetime,
